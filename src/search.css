@@ -1,0 +1,11 @@
+.search {
+  width: 30%;
+}
+
+
+.search input {
+  width: 100%;
+  padding: 15 px 25px;
+  font-size: 18px;
+  
+}
