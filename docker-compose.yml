@@ -7,15 +7,17 @@ services:
       - "5005:5005"
     environment:
       - NODE_ENV=production
+      - SESSION_SECRET=secret
       - DB_HOST=database
-      - DB_USER=blest
       - DB_NAME=pokedex
       - DB_PORT=5432
-      - SESSION_SECRET=secret
+      - DB_USER=blest
+      - DB_PASSWORD=trickmac
     depends_on:
       - database
     networks:
       - app-network
+    # command: [ "sh", "-c", "echo DB_PASSWORD=$DB_PASSWORD && node src/server/server.js" ]
 
   client:
     build:
@@ -29,14 +31,17 @@ services:
 
   database:
     image: postgres:14
+    ports:
+      - "5432:5432"
     environment:
       - POSTGRES_USER=blest
       - POSTGRES_DB=pokedex
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_PASSWORD=trickmac
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
       - app-network
+    # command: [ "sh", "-c", "echo POSTGRES_PASSWORD=$POSTGRES_PASSWORD && docker-entrypoint.sh postgres" ]
 
 volumes:
   pgdata:
