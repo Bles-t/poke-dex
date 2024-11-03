@@ -17,6 +17,7 @@ services:
       - database
     volumes:
       - ./src/server:/app/src/server
+      - ./wait-for-it.sh:/wait-for-it.sh # Mount wait-for-it script
     networks:
       - app-network
     # command: [ "sh", "-c", "echo DB_PASSWORD=$DB_PASSWORD && node src/server/server.js" ]
