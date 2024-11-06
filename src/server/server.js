@@ -128,14 +128,39 @@ function checkNotAuthenticated(req, res, next) {
     next()
 }
 
+
+async function initializeTable() {
+    const createTableQuery = `
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL
+      );
+    `;
+
+    try {
+        await pool.query(createTableQuery);
+        console.log("Table 'users' has been created or already exists.");
+    } catch (err) {
+        console.error('Error creating table:', err);
+    }
+}
+
+
 // App Set //
-const PORT = process.env.PORT || 5005;
 
-/** Listen * */
-app.listen(PORT, () => {
-    console.log(`Listening on port: ${PORT}`);
+
+initializeTable().then(() => {
+    // App Set //
+    const PORT = process.env.PORT || 5005;
+
+    // Routes and other middleware setups go here
+
+    /** Listen * */
+    app.listen(PORT, () => {
+        console.log(`Listening on port: ${PORT}`);
+    });
 });
-
 
 pool.query('SELECT NOW()', (err, res) => {
     if (err) {
