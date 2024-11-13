@@ -15,6 +15,9 @@ function Login() {
             });
 
             if (response.status === 200) {
+
+                // Set login status in localStorage
+                localStorage.setItem('isLoggedIn', 'true');
                 // Redirect to the home page after successful login
                 window.location.href = '/StartPage';
             } else {
