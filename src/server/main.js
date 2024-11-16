@@ -15,6 +15,7 @@ console.log({
     user: process.env.DB_USER,        // Database user from .env
     password: process.env.DB_PASSWORD
 });
+
 const start = async function () {
     await client.connect()
     try {
@@ -25,6 +26,7 @@ const start = async function () {
     } finally {
         await client.end()
     }
-
 }
+
+
 start();
