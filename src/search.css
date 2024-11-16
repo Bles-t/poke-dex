@@ -1,11 +1,154 @@
+/* Search bar styling */
 .search {
-  width: 30%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 
-
 .search input {
+  width: 60%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #ffcb05;
+  box-shadow: 0 0 5px #ffcb05;
+}
+
+/* Card grid styling */
+.card {
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
   width: 100%;
-  padding: 15 px 25px;
-  font-size: 18px;
-  
+  height: auto;
+  background: #f8f9fa;
+}
+
+.card h5 {
+  text-transform: capitalize;
+  color: #333;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.card .btn-primary {
+  background-color: #3b4cca;
+  border: none;
+  margin: 10px 0;
+}
+
+.card .btn-primary:hover {
+  background-color: #ffcb05;
+  color: #3b4cca;
+}
+
+/* Pokémon type styling */
+.type {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.type-normal {
+  background-color: #a8a878;
+}
+
+.type-fire {
+  background-color: #f08030;
+}
+
+.type-water {
+  background-color: #6890f0;
+}
+
+.type-electric {
+  background-color: #f8d030;
+}
+
+.type-grass {
+  background-color: #78c850;
+}
+
+.type-ice {
+  background-color: #98d8d8;
+}
+
+.type-fighting {
+  background-color: #c03028;
+}
+
+.type-poison {
+  background-color: #a040a0;
+}
+
+.type-ground {
+  background-color: #e0c068;
+}
+
+.type-flying {
+  background-color: #a890f0;
+}
+
+.type-psychic {
+  background-color: #f85888;
+}
+
+.type-bug {
+  background-color: #a8b820;
+}
+
+.type-rock {
+  background-color: #b8a038;
+}
+
+.type-ghost {
+  background-color: #705898;
+}
+
+.type-dark {
+  background-color: #705848;
+}
+
+.type-dragon {
+  background-color: #7038f8;
+}
+
+.type-steel {
+  background-color: #b8b8d0;
+}
+
+.type-fairy {
+  background-color: #ee99ac;
+}
+
+/* Grid spacing */
+.row {
+  margin: 0;
+}
+
+.col-md-4 {
+  margin-bottom: 20px;
 }

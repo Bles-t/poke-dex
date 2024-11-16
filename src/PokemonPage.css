@@ -1,77 +1,206 @@
-/* General styling for the Pokédex container */
+/* Full-screen Pokédex container with a gradient background */
 .pokedex-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #d8e3e7;
-    /* Light gray/blue background */
+    background: linear-gradient(135deg, #1e90ff, #ff6347);
     font-family: 'Arial', sans-serif;
     padding: 20px;
-}
-
-/* The Pokédex screen/card */
-.pokedex-screen {
-    width: 400px;
-    background: linear-gradient(135deg, #ff3d7f, #ff8c3d);
-    border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
     color: white;
-    text-align: center;
-    padding: 20px;
 }
 
-/* Pokémon image */
+/* Pokédex outer wrapper */
+.pokedex-wrapper {
+    width: 500px;
+    background: #2e2e2e;
+    border: 5px solid #1e1e1e;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Header section with title */
+.pokedex-header {
+    background: #ff3d7f;
+    text-align: center;
+    padding: 10px;
+}
+
+.pokedex-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Pokédex body (screen and stats) */
+.pokedex-body {
+    padding: 20px;
+    background: #1e1e1e;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Pokémon screen */
+.pokedex-screen {
+    background: #000;
+    padding: 20px;
+    border: 3px inset #ff8c3d;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .pokemon-image {
     width: 150px;
     height: 150px;
     object-fit: contain;
-    margin: 0 auto;
-    background: white;
-    border: 2px solid #ff8c3d;
-    border-radius: 50%;
-    padding: 10px;
+    margin-bottom: 10px;
 }
 
-/* Pokémon name */
 .pokemon-name {
     font-size: 1.8rem;
-    margin: 15px 0;
-    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+    color: #ff8c3d;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Pokémon stats container */
-.pokemon-stats {
-    background: rgba(0, 0, 0, 0.1);
+/* Stats section */
+.pokedex-stats {
+    background: #333;
     border-radius: 10px;
     padding: 15px;
-    margin-top: 20px;
+    width: 100%;
+    text-align: left;
 }
 
-/* Individual stat styling */
-.pokemon-stats p {
+.pokedex-stats p {
     margin: 5px 0;
     font-size: 1rem;
 }
 
-.pokemon-stats span {
+.pokedex-stats span {
     font-weight: bold;
-    color: #070606;
+    color: #ff8c3d;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .pokedex-screen {
-        width: 90%;
-    }
+/* Action buttons */
+.pokedex-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
 
-    .pokemon-image {
-        width: 120px;
-        height: 120px;
-    }
+.action-button {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    border-radius: 50%;
+    border: 2px solid #1e1e1e;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
 
-    .pokemon-name {
-        font-size: 1.5rem;
-    }
+.red-button {
+    background: #ff4b4b;
+}
+
+.blue-button {
+    background: #4b84ff;
+}
+
+.green-button {
+    background: #4bff70;
+}
+
+/* Pokémon Type Styles */
+.pokemon-types {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.pokemon-type {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    text-transform: capitalize;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Type Colors */
+.type-normal {
+    background-color: #A8A77A;
+}
+
+.type-fire {
+    background-color: #EE8130;
+}
+
+.type-water {
+    background-color: #6390F0;
+}
+
+.type-grass {
+    background-color: #7AC74C;
+}
+
+.type-electric {
+    background-color: #F7D02C;
+}
+
+.type-ice {
+    background-color: #96D9D6;
+}
+
+.type-fighting {
+    background-color: #C22E28;
+}
+
+.type-poison {
+    background-color: #A33EA1;
+}
+
+.type-ground {
+    background-color: #E2BF65;
+}
+
+.type-flying {
+    background-color: #A98FF3;
+}
+
+.type-psychic {
+    background-color: #F95587;
+}
+
+.type-bug {
+    background-color: #A6B91A;
+}
+
+.type-rock {
+    background-color: #B6A136;
+}
+
+.type-ghost {
+    background-color: #735797;
+}
+
+.type-dark {
+    background-color: #705746;
+}
+
+.type-dragon {
+    background-color: #6F35FC;
+}
+
+.type-steel {
+    background-color: #B7B7CE;
+}
+
+.type-fairy {
+    background-color: #D685AD;
 }
