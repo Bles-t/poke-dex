@@ -1,9 +1,10 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import './PokemonPage.css';
 
 function PokemonPage() {
   const location = useLocation();
+  const navigate = useNavigate();
   const pokemon = location.state.pokemon;
 
   // Mapping Pokémon types to color classes
@@ -47,7 +48,8 @@ function PokemonPage() {
               {pokemon.types.map((typeObj, typeIndex) => (
                 <span
                   key={typeIndex}
-                  className={`pokemon-type ${typeColors[typeObj.type.name]}`}>
+                  className={`pokemon-type ${typeColors[typeObj.type.name]}`}
+                >
                   {typeObj.type.name}
                 </span>
               ))}
@@ -69,6 +71,16 @@ function PokemonPage() {
           <button className="action-button red-button"></button>
           <button className="action-button blue-button"></button>
           <button className="action-button green-button"></button>
+        </div>
+
+        {/* Back Button */}
+        <div className="back-button-container">
+          <button
+            className="btn btn-secondary back-button"
+            onClick={() => navigate(-1)} // Navigate back to the previous page
+          >
+            Back to Pokédex
+          </button>
         </div>
       </div>
     </div>
