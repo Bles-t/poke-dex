@@ -225,3 +225,21 @@
 .back-button:hover {
     background-color: #495057;
 }
+
+.logout-button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logout-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #dc3545;
+    /* Slightly darker red */
+}

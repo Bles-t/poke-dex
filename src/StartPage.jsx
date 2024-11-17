@@ -42,6 +42,11 @@ function StartPage() {
     navigate('/PokemonPage', { state: { pokemon: pokeObj } });
   };
 
+  const handleLogout = () => {
+    // Perform logout logic here (e.g., clearing tokens, etc.)
+    navigate('/login'); // Redirect to login page
+  };
+
   // Calculate the current page's Pokémon based on pagination
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -65,6 +70,14 @@ function StartPage() {
 
   return (
     <div className="App black-background">
+
+      {/* Logout Button */}
+      <div className="logout-button-container">
+        <button onClick={handleLogout} className="btn btn-danger logout-button">
+          Logout
+        </button>
+      </div>
+
       <div className="wrapper">
         <div className="search">
           <input
