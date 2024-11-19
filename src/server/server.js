@@ -84,6 +84,10 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
         const username = req.body.username;
         const password = req.body.password;
         console.log("Data here", req.body)
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+
         await pool.query(
             'INSERT INTO users (username, password) VALUES ($1, $2)',
             [username, password]
