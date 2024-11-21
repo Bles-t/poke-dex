@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './loginregister.css'
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -11,17 +12,13 @@ function Login() {
         try {
             const response = await axios.post('http://localhost:5005/login', {
                 username: username,
-                password: password
+                password: password,
             });
 
             if (response.status === 200) {
-
-                // Set login status in localStorage
                 localStorage.setItem('isLoggedIn', 'true');
-                // Redirect to the home page after successful login
                 window.location.href = '/StartPage';
             } else {
-                // Set error message
                 setError('Login failed. Please check your username and password.');
             }
         } catch (err) {
@@ -31,14 +28,13 @@ function Login() {
     };
 
     return (
-        <div>
-            <h1>Login</h1>
+        <div className="login-container">
+            <h1 className="login-title">Login</h1>
 
-            {/* Display error message if it exists */}
-            {error && <div>{error}</div>}
+            {error && <div className="error-message">{error}</div>}
 
-            <form onSubmit={handleSubmit}>
-                <div>
+            <form onSubmit={handleSubmit} className="login-form">
+                <div className="input-group">
                     <label htmlFor="username">Username</label>
                     <input
                         type="text"
@@ -47,10 +43,11 @@ function Login() {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
+                        className="input-field"
                     />
                 </div>
 
-                <div>
+                <div className="input-group">
                     <label htmlFor="password">Password</label>
                     <input
                         type="password"
@@ -59,13 +56,14 @@ function Login() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
+                        className="input-field"
                     />
                 </div>
 
-                <button type="submit">Login</button>
+                <button type="submit" className="login-button">Login</button>
             </form>
 
-            <a href="/register">Register</a>
+            <a href="/register" className="register-link">Register</a>
         </div>
     );
 }

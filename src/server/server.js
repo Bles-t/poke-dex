@@ -61,6 +61,9 @@ app.use(methodOverride('_method'))
 //     res.render('index.ejs', { name: req.user.name })
 // })
 
+app.get('/StartPage', checkAuthenticated, (req, res) => {
+    res.status(200).json({ message: "Welcome to the StartPage!" });
+});
 
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
@@ -69,7 +72,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
 
 
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/', // sends to home page on login,, so i need to have this as my start page
+    successRedirect: '/StartPage', // sends to home page on login,, so i need to have this as my start page
     failureRedirect: '/login',
     failureFlash: true
 }))
@@ -169,6 +172,7 @@ initializeTable().then(() => {
 pool.query('SELECT NOW()', (err, res) => {
     if (err) {
         console.error('Database connection error:', err);
+        process.exit(1);
     } else {
         console.log('Database connected:', res.rows);
     }

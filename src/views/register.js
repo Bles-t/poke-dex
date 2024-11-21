@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './loginregister.css'; // Import the shared CSS file for styling
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -10,7 +11,7 @@ function Register() {
     try {
       const response = await axios.post('http://localhost:5005/register', {
         username: username,
-        password: password
+        password: password,
       });
 
       if (response.status === 200) {
@@ -26,10 +27,11 @@ function Register() {
   };
 
   return (
-    <div>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="register-container">
+      <h1 className="register-title">Register</h1>
+
+      <form onSubmit={handleSubmit} className="register-form">
+        <div className="input-group">
           <label htmlFor="username">Username</label>
           <input
             type="text"
@@ -38,10 +40,11 @@ function Register() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            className="input-field"
           />
         </div>
 
-        <div>
+        <div className="input-group">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -50,13 +53,15 @@ function Register() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            className="input-field"
           />
         </div>
 
-        <button type="submit">Register</button>
+        <button type="submit" className="register-button">Register</button>
       </form>
 
-      <a href="/login">Login</a>
+      {/* Link to login page */}
+      <a href="/login" className="login-link">Login</a>
     </div>
   );
 }
