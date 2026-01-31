@@ -71,12 +71,12 @@ function StartPage() {
   return (
     <div className="App black-background">
 
-      {/* Logout Button */}
+      {/* Logout Button
       <div className="logout-button-container">
         <button onClick={handleLogout} className="btn btn-danger logout-button">
           Logout
         </button>
-      </div>
+      </div> */}
 
       <div className="wrapper">
         <div className="search">
