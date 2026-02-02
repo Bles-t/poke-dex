@@ -1,4 +1,4 @@
-import { Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import StartPage from './StartPage';
 import PokemonPage from './PokemonPage';
 import Register from './views/register';

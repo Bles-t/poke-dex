@@ -2,7 +2,6 @@ import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '@fontsource/inter';
-import bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './search.css';
 import { useNavigate } from 'react-router-dom';
@@ -40,11 +39,6 @@ function StartPage() {
 
   const handleSelectPokemon = (pokeObj) => {
     navigate('/PokemonPage', { state: { pokemon: pokeObj } });
-  };
-
-  const handleLogout = () => {
-    // Perform logout logic here (e.g., clearing tokens, etc.)
-    navigate('/login'); // Redirect to login page
   };
 
   // Calculate the current page's Pokémon based on pagination
