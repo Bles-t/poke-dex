@@ -8,11 +8,12 @@ services:
     environment:
       - NODE_ENV=production
       - SESSION_SECRET=secret
-      - DB_HOST=database
-      - DB_NAME=pokedex
-      - DB_PORT=5432
-      - DB_USER=blest
-      - DB_PASSWORD=trickmac
+      # Only when the database is enabled:
+      # - DB_HOST=database
+      # - DB_NAME=pokedex
+      # - DB_PORT=5432
+      # - DB_USER=blest
+      # - DB_PASSWORD=trickmac
     depends_on:
       - database
     volumes:
@@ -41,7 +42,7 @@ services:
       - POSTGRES_DB=pokedex
       - POSTGRES_PASSWORD=trickmac
     volumes:
-      - ./pgdata:/var/lib/postgresqxl/data
+      - ./pgdata:/var/lib/postgresql/data
     networks:
       - app-network
     # command: [ "sh", "-c", "echo POSTGRES_PASSWORD=$POSTGRES_PASSWORD && docker-entrypoint.sh postgres" ]
